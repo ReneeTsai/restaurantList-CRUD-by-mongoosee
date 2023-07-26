@@ -1,10 +1,13 @@
 const mongoose = require("mongoose");
-
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
 //mongoose connect--------------------------------------
-mongoose.connect(
-  "mongodb+srv://juoruel:juoruel509010@cluster0.sqndv9x.mongodb.net/restaurant-list?retryWrites=true&w=majority",
-  { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }
-);
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+});
 // 取得資料庫連線狀態
 const db = mongoose.connection;
 // 連線異常

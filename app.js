@@ -1,6 +1,5 @@
 const express = require("express");
 const app = express();
-const port = 3000;
 const exphbs = require("express-handlebars");
 const methodOverride = require("method-override");
 const router = require("./routes"); //不特別設定index.js，就自動搜尋檔名為index的檔案
@@ -8,6 +7,10 @@ const bodyParser = require("body-parser"); // 引用 body-parser
 const session = require("express-session");
 const usePassport = require("./config/passport");
 const flash = require("connect-flash");
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
+const PORT = process.env.PORT;
 require("./config/mongoose");
 app.use(bodyParser.urlencoded({ extended: true })); // app.use每一筆請求都需透過body-parser進行前置處理
 app.use(methodOverride("_method")); // methodOverride可使用RESTful/PUT/DELETE
@@ -18,7 +21,7 @@ app.set("view engine", "hbs");
 //cookie-session
 app.use(
   session({
-    secret: "ThisIsMySecret",
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
   })
@@ -38,6 +41,6 @@ app.use((req, res, next) => {
 });
 app.use(router);
 //---------------------------------------------------------
-app.listen(port, () => {
-  console.log(`this is server on localhost:${port}`);
+app.listen(PORT, () => {
+  console.log(`this is server on localhost:${PORT}`);
 });
