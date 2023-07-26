@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 //mongoose connect--------------------------------------
 mongoose.connect(
   "mongodb+srv://juoruel:juoruel509010@cluster0.sqndv9x.mongodb.net/restaurant-list?retryWrites=true&w=majority",
-  { useNewUrlParser: true, useUnifiedTopology: true }
+  { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }
 );
 // 取得資料庫連線狀態
 const db = mongoose.connection;
