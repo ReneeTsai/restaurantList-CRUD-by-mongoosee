@@ -1,9 +1,10 @@
 # 我的餐廳清單
 
-![Index page about Restaurant List](./public/S2-3A1_restaurantList.PNG)
+![Index page about Restaurant List](./public/S3A1_restaurantList.PNG)
 
 ## 介紹
 
+可以透過 google、facebook 或是自行建立帳號登入，
 紀錄屬於自己的餐廳清單，可以瀏覽餐廳、查看詳細資訊、甚至連結到地圖。
 
 ### 功能
@@ -30,6 +31,7 @@
 
    ```bash
    npm run start
+   npm run seed
    ```
 
 5. 若看見此行訊息則代表順利運行，打開瀏覽器進入到以下網址
@@ -48,6 +50,16 @@
 
 - Node.js 18.16.0
 - Express 4.18.2
-- Express-Handlebars 4.0.2
-- Bootstrap 5.2.1
+- Express-Handlebars 3.0.0
 - body-parser 1.20.2
+- bcryptjs2.4.3
+- connect-flash 0.1.1
+- dotenv 8.2.0
+- express-session 1.17.3
+- method-override 3.0.0
+- mongoose 5.9.7
+- nodemon 3.0.1
+- passport 0.4.1
+- passport-facebook 3.0.0
+- passport-google-oauth20 2.0.0
+- passport-local 1.0.0
